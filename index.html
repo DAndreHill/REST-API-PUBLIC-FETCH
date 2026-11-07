@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Active Safety System Data</title>
+</head>
+<body>
+    <h1>Active Safety System Data</h1>
+    <button onclick="loadData()">Load Vehicle Data</button>
+    <p id="status">Click the button to load data.</p>
+    <ul id="results"></ul>
+
+    <script>
+        async function loadData() {
+            const status = document.getElementById("status");
+            const results = document.getElementById("results");
+
+            status.textContent = "Loading data...";
+            results.innerHTML = "";
+
+            try {
+                const response = await fetch("/items");
+
+                if (!response.ok) {
+                    throw new Error("Failed to load data");
+                }
+
+                const data = await response.json();
+
+                data.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item.Name;
+                    results.appendChild(li);
+                });
+
+                status.textContent =
+                    `Successfully loaded ${data.length} records.`;
+
+            } catch (error) {
+                status.textContent = "Error: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
