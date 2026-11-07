@@ -1,0 +1,5 @@
+For this assignment, I learned how to create a RESTful application that retrieves information from an external API. I started by creating a Python application using Flask and connecting it to the NHTSA API. I updated my code to use the httpx asynchronous HTTP client so the application could retrieve data without blocking the request.
+
+Next, I modified the JSON filter to display only records where GroupName equals “Active Safety System.” Then I created an HTML page that uses JavaScript Fetch to display the results. I included loading messages and error handling to help users understand what is happening when data is requested.
+
+One thing that surprised me was how much vehicle information was available through the public API. After testing the application in Safari, I successfully retrieved 11 records. This assignment helped me better understand asynchronous requests, JSON filtering, and how Python and JavaScript can work together to retrieve and display information. I would like to learn more about building applications that use external APIs.
